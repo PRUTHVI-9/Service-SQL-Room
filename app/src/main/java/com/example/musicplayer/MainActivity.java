@@ -24,8 +24,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.messaging.FirebaseMessaging;
 
 public class MainActivity extends AppCompatActivity {
-    Button start,stop,notification;
-
+    Button start,stop,notification,next;
+ 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +35,15 @@ public class MainActivity extends AppCompatActivity {
         start=findViewById(R.id.start);
         stop=findViewById(R.id.stop);
         notification=findViewById(R.id.notification);
+        next=findViewById(R.id.next);
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,TestActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         notification.setOnClickListener(new View.OnClickListener() {
             @Override
